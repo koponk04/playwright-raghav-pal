@@ -27,7 +27,7 @@ def reformat_transcript_with_chapters(text):
         if line.startswith("Chapter"):
             mode = Mode.SECTIONS.value
             new_line = "" if first else "\n"
-            formatted_lines.append(f"{new_line}# {line}")
+            formatted_lines.append(f"{new_line}# {line}\n")
             i += 1
             continue
 
@@ -43,7 +43,7 @@ def reformat_transcript_with_chapters(text):
                 # duration = lines[i+1]  # ignored
                 content_line = 1 if first else 2
                 content = lines[i+content_line].strip()
-                formatted_lines.append(f"{time} {content}")
+                formatted_lines.append(f"{time} {content}\n")
                 i += 1 + content_line
                 first = False
         else:
